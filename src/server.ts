@@ -1,4 +1,5 @@
 import { getAgents, showList } from './logic/agents'
+import { Operation } from '@logic/types'
 import { getIssuance, getClaims, calculateIssuance, calculateClaims, calculateBonus } from './logic/operations'
 
 async function main () {
@@ -7,7 +8,12 @@ async function main () {
   const claims = await getClaims()
 
   for (const agent of agents) {
-    agent.issuance = calculateIssuance(agent, issuance)
+    const agentIssuance = issuance.filter((op: Operation) => op.agent == agent.id)
+    console.log(agent.name, agentIssuance.length)
+
+    agent.issuance = calculateIssuance(agent, agentIssuance)
+
+    
     agent.claims = calculateClaims(agent, claims)
     agent.bonus = calculateBonus(agent)
   }
