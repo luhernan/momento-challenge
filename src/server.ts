@@ -9,12 +9,13 @@ async function main () {
 
   for (const agent of agents) {
     const agentIssuance = issuance.filter((op: Operation) => op.agent == agent.id)
-    console.log(agent.name, agentIssuance.length)
-
+    //console.log(agent.name, agentIssuance.length)
     agent.issuance = calculateIssuance(agent, agentIssuance)
 
+    const agentClaims = claims.filter((op: Operation) => op.agent == agent.id)
+    //console.log(agent.name, agentClaims.length)
+    agent.claims = calculateClaims(agent, agentClaims)
     
-    agent.claims = calculateClaims(agent, claims)
     agent.bonus = calculateBonus(agent)
   }
 

@@ -1,4 +1,4 @@
-export type Agent {
+export type Agent = {
   id: number
   name: string
   lastName: string
@@ -7,7 +7,7 @@ export type Agent {
   bonus: number
 }
 
-export type Operation {
+export type Operation = {
   agent: number
   operation: string
   date: string

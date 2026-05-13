@@ -11,7 +11,7 @@ export function showList (agents: Agent[]) {
   console.log(`AGENTE${tab}NOMBRE${tab}APELLIDO${tab}EMISIÓN${tab}SINIESTROS${tab}BONO`)
   
   for (const agent of agents) {
-    console.log(`${agent.id}${tab}${agent.name}${tab}${agent.lastName}${tab}${agent.issuance}${tab}${agent.claims}${tab}${agent.bonus}`)
+    console.log(`${agent.id}${tab}${agent.name}${tab}${agent.lastName}${tab}${agent.issuance.toFixed(2)}${tab}${agent.claims.toFixed(2)}${tab}${agent.bonus.toFixed(2)}`)
   }
-  
+
 }
